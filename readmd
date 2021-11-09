@@ -1,0 +1,60 @@
+mall  
+
+  admin 后台管理
+
+    vue-cli3 + webpack + sass || less || stylus + element-ui || iview  + axios 
+
+  server 服务端 
+
+    express + mongodb + jwt  (jsonwebtoken)
+
+  phone   
+
+    vue-cli3 + webpack + sass || less || stylus + vant + axios 
+
+  web || pc   
+
+    vue-cli3 + webpack + sass || less || stylus + 手写样式 + axios 
+
+
+通用性的骨架    
+
+  1. 测试环境、生产环境、开发环境配置
+
+    .env.development   
+
+      EVN=development   
+
+      VUE_APP_BASE_API = "/api"
+
+    .env.production   
+      
+      ENV="production"
+
+      VUE_APP_BASE_API = "http://itfly.vip:8888"
+
+    .env.production   
+      
+      NODE_ENV = production
+
+      ENV = 'staging'
+
+      VUE_APP_BASE_API = '/stage-api'
+
+
+
+    "build:prod": "vue-cli-service build",
+    "build:stage": "vue-cli-service build --mode staging",
+    "dev": "vue-cli-service serve"
+
+  2. axios 的二次封装    
+
+  3. ui   
+
+    vue add element-ui   
+
+  4. vue-router  建议模块化
+
+  5. vuex  状态管理    
+
+
