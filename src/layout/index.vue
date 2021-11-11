@@ -8,7 +8,7 @@
     <!-- 右侧 -->
     <div :class="['main-container', isCollapse ?'fold': 'unfold']">
       <div class="fixed-header">
-        <navbar @click="toggleSidebar"></navbar>
+        <navbar></navbar>
       </div>
       <app-main></app-main>
     </div>
@@ -16,21 +16,18 @@
 </template>
 <script>
 import { Navbar, AppMain, Sidebar } from './components'
+import { mapGetters } from 'vuex'
 export default {
+  computed: {
+    ...mapGetters(['sidebar']),
+    isCollapse() {
+      return !this.sidebar.opened
+    }
+  },
   components: {
     Navbar,
     AppMain,
     Sidebar
-  },
-  data() {
-    return {
-      isCollapse: false
-    }
-  },
-  methods: {
-    toggleSidebar() {
-      this.isCollapse = !this.isCollapse
-    }
   }
 }
 </script>

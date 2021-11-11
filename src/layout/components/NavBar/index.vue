@@ -1,7 +1,7 @@
 <template>
   <div class="navbar">
     <i
-      class="el-icon-s-fold"
+      :class="getIcon"
       @click="hanldeToggleSideBar"
     ></i>
 
@@ -10,7 +10,14 @@
 </template>
 <script>
 import Breadcrumb from '@/components/Breadcrumb'
+import { mapGetters } from 'vuex'
 export default {
+  computed: {
+    ...mapGetters(['sidebar']),
+    getIcon() {
+      return this.sidebar.opened ? 'el-icon-s-fold' : 'el-icon-s-unfold'
+    }
+  },
   components: {
     Breadcrumb
   },
@@ -21,7 +28,7 @@ export default {
   },
   methods: {
     hanldeToggleSideBar() {
-      this.$emit('click')
+      this.$store.dispatch('app/toggleSidebar')
     }
   }
 }
