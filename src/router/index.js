@@ -7,12 +7,18 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
-    component: () => import('../views/Home.vue'),
+    component: () => import('../layout'),
     redirect: '/welcome',
+    meta: {
+      title: '首页'
+    },
     children: [
       {
         path: 'welcome',
-        component: () => import('../views/Welcome.vue')
+        component: () => import('../views/Welcome.vue'),
+        meta: {
+          title: '欢迎'
+        }
       }
     ]
   },

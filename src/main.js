@@ -5,6 +5,7 @@ import './styles.scss'
 import * as api from './api'
 import storage from './utils/storage'
 import router from './router'
+import store from './store'
 
 Vue.prototype.$http = api
 Vue.prototype.$storage = storage
@@ -15,5 +16,6 @@ Vue.config.productionTip = false
 
 new Vue({
   router,
+  store,
   render: h => h(App)
 }).$mount('#app')
